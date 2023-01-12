@@ -28,7 +28,25 @@ def First_choice():
 
 First_choice()
 choice1 = input("Enter a number(0-3) :")
-num = int(choice1)
+
+
+def checker(choice1):
+    ok = 0
+    while ok == 0:
+        if len(choice1) != 1:
+            choice1 = input("Enter a number(0-3) :")
+        else:
+            for x in choice1:
+                if x in "0123":
+                    ok = 1
+                    return choice1
+                else:
+                    print("wrong input, try again")
+                    choice1 = input("Enter a number(0-3) :")
+
+
+checker(choice1)
+num = int(checker(choice1))
 
 
 # total first order :
@@ -44,6 +62,7 @@ def total():
 
 
 total()
+
 
 def return_totals():
     if num == 0:
@@ -95,7 +114,25 @@ def Second_choice():
 
 Second_choice()
 choice2 = input("Enter a number(0-3) :")
-num2 = int(choice2)
+
+
+def checker2(choice2):
+    ok = 0
+    while ok == 0:
+        if len(choice2) != 1:
+            choice2 = input("Enter a number(0-3) :")
+        else:
+            for x in choice2:
+                if x in "0123":
+                    ok = 1
+                    return choice2
+                else:
+                    print("wrong input, try again")
+                    choice2 = input("Enter a number(0-3) :")
+
+
+checker2(choice2)
+num2 = int(checker2(choice2))
 
 
 # total : first + second order :
@@ -152,7 +189,23 @@ def Third_choice():
 
 Third_choice()
 choice3 = input("Enter a number(0-3) :")
-num3 = int(choice3)
+def checker3(choice3):
+    ok = 0
+    while ok == 0:
+        if len(choice3) != 1:
+            choice3 = input("Enter a number(0-3) :")
+        else:
+            for x in choice3:
+                if x in "0123":
+                    ok = 1
+                    return choice3
+                else:
+                    print("wrong input, try again")
+                    choice3 = input("Enter a number(0-3) :")
+
+
+checker3(choice3)
+num3 = int(checker3(choice3))
 
 
 def sweet_chosen():
