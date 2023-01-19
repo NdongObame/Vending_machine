@@ -9,12 +9,12 @@ sweets_prices = [0, 7, 3.99, 9.99]
 
 # introduction
 print("welcome to our vendor machine!\nReady for some treats!")
-print("the availabes treats are :")
+print("the available treats are :")
 
-# treats avalaible
-print("snacks : " + str(snacks[1:4]))
-print("drinks : " + str(drinks[1:4]))
-print("sweets : " + str(sweets[1:4]))
+# treats available
+print("snacks : " + str(snacks[1:]))
+print("drinks : " + str(drinks[1:]))
+print("sweets : " + str(sweets[1:]))
 
 
 # first choice (snacks)
@@ -29,20 +29,14 @@ def First_choice():
 First_choice()
 choice1 = input("Enter a number(0-3) :")
 
+List = ["0", "1", "2", "3"]
+
 
 def checker(choice1):
-    ok = 0
-    while ok == 0:
-        if len(choice1) != 1:
-            choice1 = input("Enter a number(0-3) :")
-        else:
-            for x in choice1:
-                if x in "0123":
-                    ok = 1
-                    return choice1
-                else:
-                    print("wrong input, try again")
-                    choice1 = input("Enter a number(0-3) :")
+    while choice1 not in List:
+        print("wrong input, try again")
+        choice1 = input("Enter a number(0-3) :")
+    return choice1
 
 
 checker(choice1)
@@ -117,18 +111,10 @@ choice2 = input("Enter a number(0-3) :")
 
 
 def checker2(choice2):
-    ok = 0
-    while ok == 0:
-        if len(choice2) != 1:
-            choice2 = input("Enter a number(0-3) :")
-        else:
-            for x in choice2:
-                if x in "0123":
-                    ok = 1
-                    return choice2
-                else:
-                    print("wrong input, try again")
-                    choice2 = input("Enter a number(0-3) :")
+    while choice2 not in List:
+        print("wrong input, try again")
+        choice1 = input("Enter a number(0-3) :")
+    return choice2
 
 
 checker2(choice2)
@@ -148,7 +134,7 @@ def return_totals2():
 
 
 total = return_totals() + return_totals2()
-print("total =R" + str(total))
+print("total =R" + str(round(total, 2)))
 
 
 ###
@@ -189,19 +175,13 @@ def Third_choice():
 
 Third_choice()
 choice3 = input("Enter a number(0-3) :")
+
+
 def checker3(choice3):
-    ok = 0
-    while ok == 0:
-        if len(choice3) != 1:
-            choice3 = input("Enter a number(0-3) :")
-        else:
-            for x in choice3:
-                if x in "0123":
-                    ok = 1
-                    return choice3
-                else:
-                    print("wrong input, try again")
-                    choice3 = input("Enter a number(0-3) :")
+    while choice3 not in List:
+        print("wrong input, try again")
+        choice3 = input("Enter a number(0-3) :")
+    return choice3
 
 
 checker3(choice3)
@@ -243,7 +223,7 @@ def completed_order():
 
 
 total1 = return_totals() + return_totals2() + return_totals3()
-print("total =R" + str(total1))
+print("total =R" + str(round(total1,1)))
 
 
 ###
@@ -251,7 +231,10 @@ print("total =R" + str(total1))
 
 def finalising():
     completed_order()
-    return input("type \"Y\" or \"N\" : ")
+    decision = input("type \"Y\" or \"N\" : ").lower()
+    while decision != "y" and decision != "n":
+        decision = input("wrong input. Type \"Y\" or \"N\" :")
+    return decision
 
 
 while finalising() == "n":
@@ -260,18 +243,21 @@ while finalising() == "n":
     if correction == "1":
         First_choice()
         choice1 = input("Enter a number(0-3) :")
+        checker(choice1)
         num = int(choice1)
         total1 = return_totals() + return_totals2() + return_totals3()
         print("total =R" + str(total1))
     elif correction == "2":
         Second_choice()
         choice2 = input("Enter a number(0-3) :")
+        checker2(choice2)
         num2 = int(choice2)
         total1 = return_totals() + return_totals2() + return_totals3()
         print("total =R" + str(total1))
     elif correction == "3":
         Third_choice()
         choice3 = input("Enter a number(0-3) :")
+        checker3(choice3)
         num3 = int(choice3)
         total1 = return_totals() + return_totals2() + return_totals3()
         print("total =R" + str(total1))
