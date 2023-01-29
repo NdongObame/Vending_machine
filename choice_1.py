@@ -1,18 +1,28 @@
-def First_choice():
-    from Goods import snacks, snacks_prices
-    print("which snacks do you prefer ?")
-    print("0- none")
-    print("1- " + str(snacks[1]) + " ... R" + str(snacks_prices[1]))
-    print("2- " + str(snacks[2]) + " ... R" + str(snacks_prices[2]))
-    print("3- " + str(snacks[3]) + " ... R" + str(snacks_prices[3]))
-
-def snack_chosen(num):
+def Snacks():
+    from check import checker
+    from totals import total
     from Goods import snacks
-    if num == 0:
-        return "no snacks"
-    elif num == 1:
-        return snacks[1]
-    elif num == 2:
-        return snacks[2]
-    elif num == 3:
-        return snacks[3]
+    print("\nwhich snacks do you prefer ?")
+    choice = input("Enter a number(0-" + str(len(snacks)) + "):")
+    num = checker(choice)
+    total(num)
+
+
+def Drinks():
+    from check import checker
+    from totals import total
+    from Goods import drinks
+    print("\nwhich drinks do you prefer ?")
+    choice = input("Enter a number(0-" + str(len(drinks)) + "):")
+    num = checker(choice)
+    total(num)
+
+
+def Sweets():
+    from check import checker
+    from totals import total
+    from Goods import sweets
+    print("\nwhich drinks do you prefer ?")
+    choice = input("Enter a number(0-" + str(len(sweets)) + "):")
+    num = checker(choice)
+    total(num)

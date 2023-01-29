@@ -1,40 +1,63 @@
-from Goods import snacks, drinks, drinks_prices, sweets, sweets_prices, intro
-from choice_1 import First_choice
-from check import checker
-from totals import total, return_totals
+from Goods import snacks, drinks, sweets
 
-intro()
+print("welcome to our vending machine!\nReady for some treats!\n")
+t = 0
+receipt = []
 
-# first choice (snacks)
-First_choice()
-choice1 = input("Enter a number(0-3) :")
-num = checker(choice1)
-total(num)
+order = "y"
+while order == "y":
 
-###
+    treats = input('''which treats do you want ?
+1-Snacks
+2-drinks
+3-sweets
 
-# second choice (drinks)
-from choice_2 import choose_snacks
-from check import checker2
-from totals import return_totals2
+Enter a number 1-3:''')
+    n = 0
+    print("\n"
+          "The available snacks are :"
+          "\n0 - to cancel")
+    if treats == "1":
+        from choice_1 import Snacks
+        for S in snacks:
+            n += 1
+            print(str(n) + " - " + S[0] + "......." + str(S[1]))
+        Snacks()
+        order = input("do you want to add something else ? (y or n):")
 
-choose_snacks(num)
-choice2 = input("Enter a number(0-3) :")
-num2 = checker2(choice2)
-total = return_totals(num) + return_totals2(num2)
-print("total =R" + str(round(total, 2)))
+    elif treats == "2":
+        from choice_1 import Drinks
+        for D in drinks:
+            n += 1
+            print(str(n) + " - " + D[0] + "......." + str(D[1]))
+        Drinks()
+        order = input("do you want to add something else ? (y or n):")
+        if order == "y":
+            treats = input('''which treats do you want ?
+            1-Snacks
+            2-drinks
+            3-sweets
+            type 1-3: ''')
+    elif treats == "3":
+        from choice_1 import Sweets
+        for w in sweets:
+            n += 1
+            print(str(n) + " - " + w[0] + "......." + str(w[1]))
+        Sweets()
+        order = input("do you want to add something else ? (y or n):")
+        if order == "y":
+            treats = input('''which treats do you want ?
+            1-Snacks
+            2-drinks
+            3-sweets
+            type 1-3: ''')
 
-###
 
-# third choice (sweets)
-from choice_3 import choose_drinks
-from check import checker3
-from totals import return_totals3
-choose_drinks(num2, num)
-choice3 = input("Enter a number(0-3) :")
-num3 = checker3(choice3)
-total1 = return_totals(num) + return_totals2(num2) + return_totals3(num3)
-print("total =R" + str(round(total1, 1)))
 
-from correction import completed_order
-completed_order(num,num2,num3)
+print("so it will be :")
+T = 0
+for each in receipt:
+    print(each[0] + "......." + str(each[1]))
+    T += each[1]
+print("total :" + str(T))
+input("Is your order correct ?")
