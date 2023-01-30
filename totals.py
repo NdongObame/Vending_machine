@@ -1,28 +1,21 @@
-def total(num):
-    from Goods import snacks, drinks, sweets
-    from main import treats, receipt, t
-    num -= 1
+def total(choice, treats, receipt, t):
+    from Inventory import snacks, drinks, sweets
+    choice -= 1
     if treats == "1":
-        if num < 0:
-            print("total = R0")
-        else:
-            receipt.append(snacks[num])
+        if choice >= 0:
+            receipt.append(snacks[choice])
             for X in receipt:
                 t += X[1]
-            print(str(t))
+            print("total :" + str(round(t,2)))
     elif treats == "2":
-        if num < 0:
-            print("total = R0")
-        else:
-            receipt.append(drinks[num])
+        if choice >= 0:
+            receipt.append(drinks[choice])
             for X in receipt:
                 t += X[1]
-            print(str(t))
+            print("total :" + str(round(t,2)))
     elif treats == "3":
-        if num < 0:
-            print("total = R0")
-        else:
-            receipt.append(sweets[num])
+        if choice >= 0:
+            receipt.append(sweets[choice])
             for X in receipt:
                 t += X[1]
-            print(str(t))
+            print("total :" + str(round(t,2)))
