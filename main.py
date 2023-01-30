@@ -9,6 +9,11 @@ order = "y"
 while order == "y":
     treats = input("which treats do you want ?\n1-Snacks\n2-drinks\n3-sweets"
                    "\nEnter a number 1-3:")
+
+    if treats == "0":
+        input("Bye, bye")
+        exit()
+
     # "n" correspond to the number of element in each list of inventory is initial state is 0 cause it counts
     # from 0 + n elements there is in each list
     n = 0
@@ -37,7 +42,6 @@ while order == "y":
             print(str(n) + " - " + w[0] + "......." + str(w[1]))
         Sweets(treats, receipt, t)
         order = input("do you want to add something else ? (y or n):")
-
 
 print("so it will be :")
 T = 0
