@@ -7,7 +7,7 @@ receipt = []
 order = "y"
 
 while order == "y":
-    treats = input("which treats do you want ?\n0- Exit\n1- Snacks\n2- drinks\n3- sweets"
+    treats = input("which treats do you want ?\n0- Exit\n1- Snacks\n2- drinks\n3- sweets\n4- medecine"
                    "\nEnter a number 1-3:")
     if treats == "0":
         input("Bye, bye")
